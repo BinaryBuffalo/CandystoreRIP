@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Gradient Background</title>
+  <style>
+    /* Uniquely named gradient container */
+    .__background-container-weird__ {
+      position: fixed; /* Fixed positioning ensures it's in the background */
+      top: 0;
+      left: 0;
+      width: 100vw; /* Full viewport width */
+      height: 100vh; /* Full viewport height */
+      z-index: -9999; /* Ensure it's behind everything */
+      pointer-events: none; /* Prevent interaction with background */
+    }
+
+    /* Uniquely named animated gradient */
+    .__animated-gradient-weird__ {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(135deg, #1cb7ff, white, #0077ed, white, #0a74ff);
+      background-size: 300% 300%;
+      animation: __gradient-flow-weird__ 25s linear infinite;
+      -webkit-animation: __gradient-flow-weird__ 25s linear infinite; /* Safari compatibility */
+    }
+
+    @keyframes __gradient-flow-weird__ {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+
+    @-webkit-keyframes __gradient-flow-weird__ {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Uniquely named gradient container -->
+
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Header</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* General styling */
+        .thefreezetekheader-body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .thefreezetekheader-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            position: relative;
+        }
+
+        /* Left and Right Button Styling */
+        .thefreezetekheader-header-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+            margin: 0 20px;
+        }
+
+        .thefreezetekheader-header-button i {
+            background-color: black;
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+        }
+
+        .thefreezetekheader-header-button span {
+            margin-top: 5px;
+        }
+
+        /* Logo in center, with overlap on the line */
+        .thefreezetekheader-logo {
+            max-width: 1200px;
+            height: auto;
+            position: absolute;
+            top: -142px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        /* Search bar styling */
+        .thefreezetekheader-search-bar-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            padding-bottom: 10px;
+            width: 100%;
+            position: relative;
+            z-index: 3; /* Ensure search bar is on top */
+        }
+
+        .thefreezetekheader-search-bar {
+            display: flex;
+            align-items: center;
+            border: 2px solid black;
+            padding: 5px 10px;
+            width: 60%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .thefreezetekheader-search-bar i {
+            margin-right: 8px;
+            color: black;
+        }
+
+        .thefreezetekheader-search-bar input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .thefreezetekheader-search-bar button {
+            display: none;
+            background-color: rgb(71, 246, 255);
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 3px 10px;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .thefreezetekheader-search-bar button:hover {
+            background-color: rgb(54, 228, 255);
+        }
+
+        .thefreezetekheader-search-bar button:active {
+            background-color: rgb(13, 179, 250);
+        }
+
+        /* Divider line */
+        .thefreezetekheader-divider {
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            margin-top: 140px; /* Moved down to accommodate the logo */
+        }
+
+        /* Menu Bar styling */
+        .thefreezetekheader-menu-bar {
+            z-index: 10; /* Ensure menu bar is above the SVG logo */
+            position: relative; /* Position relative so z-index works */
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Ensures the buttons stack if too long */
+            padding: 10px 0;
+            margin: 10px 8px; /* 8px from the edge */
+        }
+
+        .thefreezetekheader-menu-item {
+            margin: 0 8px; /* Neatly spaced by 8px */
+            position: relative;
+            z-index: 10; /* Make sure individual menu items are above the logo */
+            background-color: white;
+        }
+
+        .thefreezetekheader-menu-item a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: 2px solid black;
+            display: inline-block;
+        }
+
+        /* Dropdown Menu */
+        .thefreezetekheader-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .thefreezetekheader-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 134px;
+            border: 1px solid black;
+            left: 0;
+            top: 100%;
+            z-index: 20; /* Ensure dropdown is above everything else */
+        }
+
+        .thefreezetekheader-dropdown-content a {
+            color: black;
+            padding: 5px;
+            text-decoration: none;
+            display: block;
+            white-space: nowrap; /* Prevents text wrapping */
+        }
+
+        .thefreezetekheader-dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .thefreezetekheader-dropdown:hover .thefreezetekheader-dropdown-content {
+            display: block; /* Show dropdown content on hover */
+        }
+
+        .thefreezetekheader-dropdown:hover a {
+            background-color: white; /* Keeps the background of the link white on hover */
+        }
+
+        .thefreezetekheader-menu-item a:hover,
+        .thefreezetekheader-dropdown-content a:hover {
+            background-color: rgb(109, 216, 255);
+        }
+
+        .thefreezetekheader-menu-item a:active,
+        .thefreezetekheader-dropdown-content a:active {
+            background-color: rgb(109, 216, 255);
+        }
+
+        /* Ensure the search bar is still on top of everything */
+        .thefreezetekheader-search-bar-container {
+            z-index: 12; /* Ensure search bar is above all elements */
+        }
+
+        /* Adjustments for different desktop screen widths */
+        @media (max-width: 1900px) {
+            .thefreezetekheader-divider {
+                margin-top: 90px;
+            }
+
+            .thefreezetekheader-logo {
+                max-width: 800px;
+                top: -115px;
+            }
+        }
+
+        @media (max-width: 1574px) {
+            .thefreezetekheader-divider {
+                margin-top: 100px;
+            }
+
+            .thefreezetekheader-logo {
+                max-width: 800px;
+                top: -100px;
+            }
+        }
+
+        @media (max-width: 1395px) {
+            .thefreezetekheader-divider {
+                margin-top: 80px;
+            }
+
+            .thefreezetekheader-logo {
+                max-width: 800px;
+                top: -90px;
+            }
+        }
+
+        @media (max-width: 1254px) {
+            .thefreezetekheader-divider {
+                margin-top: 70px;
+            }
+
+            .thefreezetekheader-logo {
+                width: 600px;
+                top: -80px;
+            }
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 768px) {
+            .thefreezetekheader-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                position: relative;
+            }
+
+            /* Ensures the logo looks good on mobile, below the buttons */
+            .thefreezetekheader-logo {
+                width: 1200px;
+                position: relative;
+                top: -150px;
+                margin-top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            /* Buttons stay in top-left and top-right on mobile */
+            .thefreezetekheader-header-button {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .thefreezetekheader-search-bar {
+                width: 80%;
+                max-width: none;
+            }
+
+            .thefreezetekheader-divider {
+                margin-top: -300px; /* Adjusted for smaller screen */
+            }
+
+
+            .thefreezetekheader-menu-item {
+                margin-bottom: 10px; /* Add spacing between stacked buttons */
+                padding: 8px;
+                position: relative;
+                z-index: 1;
+                width: auto; /* Allow menu items to wrap to next row */
+            }
+
+            /* Force all items into one stack when the screen gets smaller */
+            @media (max-width: 480px) {
+                .thefreezetekheader-menu-bar {
+                    flex-direction: column; /* Stack all buttons vertically */
+                    align-items: center;
+                    margin-left: -10px;
+                }
+
+                .thefreezetekheader-menu-item {
+                    width: 35; /* Make each menu item full width */
+                    text-align: center; /* Center the text */
+                }
+
+                .thefreezetekheader-dropdown-content {
+                    position: relative; /* Ensure it's relative so it stays aligned */
+                    left: 0; /* Align with parent item */
+                    right: auto;
+                    width: auto; /* Ensure the width is determined by content */
+                    text-align: center; /* Center text inside dropdown */
+                }
+
+                /* Ensure spacing so dropdown doesn't overlap */
+                .thefreezetekheader-menu-item.dropdown {
+                    margin-bottom: 20px; /* Add extra space below dropdown */
+                }
+
+                /* Force dropdown content to display block when shown */
+                .thefreezetekheader-dropdown-content a {
+                    display: block;
+                    width: auto; /* Ensure width is not stretched */
+                    text-align: center; /* Center text inside dropdown */
+                }
+            }
+        }
+    </style>
+</head>
+<body class="thefreezetekheader-body">
+
+    <header class="thefreezetekheader-header">
+        <!-- Login Button (Top Left for both Desktop and Mobile) -->
+        <a href="#" class="thefreezetekheader-header-button" style="order: 1;">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <span>Login</span>
+        </a>
+
+        <!-- Cart Button (Top Right for both Desktop and Mobile) -->
+        <a href="#" class="thefreezetekheader-header-button" style="order: 3;">
+            <i class="bi bi-cart3"></i>
+            <span>Cart</span>
+        </a>
+    </header>
+
+    <!-- Center Logo with overlap (Centered on mobile and desktop) -->
+    <img src="freshlogo.svg" alt="Logo" class="thefreezetekheader-logo">
+
+    <!-- Divider Line -->
+    <div class="thefreezetekheader-divider"></div>
+
+    <!-- Search Bar -->
+    <div class="thefreezetekheader-search-bar-container">
+        <div class="thefreezetekheader-search-bar">
+            <i class="bi bi-search"></i>
+            <input type="text" placeholder="Search" id="thefreezetekheader-search-input">
+            <button id="thefreezetekheader-search-btn">Lookup</button>
+        </div>
+    </div>
+
+    <!-- Menu Bar with Buttons and Dropdown -->
+    <div class="thefreezetekheader-menu-bar">
+        <div class="thefreezetekheader-menu-item">
+            <a href="#">HOME</a>
+        </div>
+        <div class="thefreezetekheader-menu-item">
+            <a href="#">SHOP</a>
+        </div>
+        <div class="thefreezetekheader-menu-item">
+            <a href="#">ABOUT</a>
+        </div>
+        <div class="thefreezetekheader-menu-item">
+            <a href="#">CONTACT</a>
+        </div>
+        <div class="thefreezetekheader-menu-item thefreezetekheader-dropdown">
+            <a href="#">WHOLESALE</a>
+            <div class="thefreezetekheader-dropdown-content">
+                <a href="#">Through Us</a>
+                <a href="#">Quote</a>
+                <a href="#">Resellers</a>
+                <a href="#">Equipment</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('thefreezetekheader-search-input');
+        const searchButton = document.getElementById('thefreezetekheader-search-btn');
+
+        // Event listener to show the search button when there's input in the search box
+        searchInput.addEventListener('input', function() {
+            if (searchInput.value.trim() !== "") {
+                searchButton.style.display = 'inline-block';  // Show the button
+            } else {
+                searchButton.style.display = 'none';  // Hide the button if the input is cleared
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category and Price Sort Dropdown</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* Custom Styling for the Dropdown and Button */
+        .dropdown {
+            width: 311px;
+            position: relative;
+            display: inline-block;
+            margin-right: 20px; /* Spacing between dropdowns */
+        }
+        .dropdown-toggle {
+            width: 100%;
+            text-align: left;
+            padding-right: 30px; /* Space for icon */
+            border-radius: 0.375rem;
+            padding: 10px 15px;
+            font-size: 16px;
+            transition: box-shadow 0.3s ease;
+        }
+        .dropdown-menu {
+            width: 100%;
+            display: none; /* Initially hidden */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+        }
+        .dropdown:hover .dropdown-menu, 
+        .dropdown.show .dropdown-menu {
+            display: block; /* Show on hover or click */
+        }
+        /* Sleek button hover effect */
+        .dropdown-toggle:hover {
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+        }
+        /* Sleek dropdown item styling */
+        .dropdown-item {
+            font-size: 16px;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+        }
+        .dropdown-item:hover {
+            background-color: #f1f1f1; /* Slightly darker on hover */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <div class="d-flex">
+            <!-- First Dropdown: Sort by Categories -->
+            <div class="dropdown" id="categoryDropdown">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownButton1">
+                    <i class="bi bi-search"></i> Sort by Category
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">All Categories</a></li> <!-- All Categories Option -->
+                    <li><a class="dropdown-item" href="#">Featured Items</a></li> <!-- Featured Items Option -->
+                    <li><hr class="dropdown-divider"></li> <!-- Divider for clarity -->
+                    <li><a class="dropdown-item" href="#">Category 1</a></li>
+                    <li><a class="dropdown-item" href="#">Category 2</a></li>
+                    <li><a class="dropdown-item" href="#">Category 3</a></li>
+                </ul>
+            </div>
+
+            <!-- Second Dropdown: Sort by Price -->
+            <div class="dropdown" id="priceDropdown">
+                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownButton2">
+                    <i class="bi bi-tag"></i> Sort by Price
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="lowtohigh/">Lowest to Highest</a></li> <!-- Lowest to Highest -->
+                    <li><a class="dropdown-item" href="hightolow/">Highest to Lowest</a></li> <!-- Highest to Lowest -->
+                    <li><a class="dropdown-item" href="discounteditems/">Clearance Items</a></li> <!-- Clearance Items -->
+                    <li><hr class="dropdown-divider"></li> <!-- Divider for clarity -->
+                    <li><a class="dropdown-item" href="#">Test1</a></li> <!-- Default option -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Toggle dropdown on button click for both dropdowns
+        document.getElementById('dropdownButton1').addEventListener('click', function () {
+            var dropdown1 = document.getElementById('categoryDropdown');
+            dropdown1.classList.toggle('show');
+        });
+
+        document.getElementById('dropdownButton2').addEventListener('click', function () {
+            var dropdown2 = document.getElementById('priceDropdown');
+            dropdown2.classList.toggle('show');
+        });
+
+        // Close dropdown if clicked outside for both dropdowns
+        document.addEventListener('click', function (event) {
+            var dropdown1 = document.getElementById('categoryDropdown');
+            var dropdown2 = document.getElementById('priceDropdown');
+            if (!dropdown1.contains(event.target)) {
+                dropdown1.classList.remove('show');
+            }
+            if (!dropdown2.contains(event.target)) {
+                dropdown2.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
