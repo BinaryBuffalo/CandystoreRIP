@@ -1,6 +1,3 @@
-Here is the raw Markdown text for your README. You can copy the text below and paste it directly into your README.md file on GitHub.
-
-ARTIC Candy Store Copy
 ARTIC Candy Store Copy is a front-end web project designed to replicate a modern, responsive e-commerce interface for a candy shop. This project focuses on clean design, fluid layouts, and vanilla JavaScript functionality without relying on heavy frameworks.
 
 🚀 Live Demo & Concept
@@ -56,3 +53,4 @@ Enhance Animations: Add @keyframes in your CSS or use Tailwind's animate- utilit
 
 📄 License
 Distributed under the MIT License. See LICENSE for more information.
+
