@@ -38,7 +38,7 @@ Tailwind CSS: Rapid UI development and responsive design.
 Vanilla JavaScript: Lightweight logic for interactivity.
 
 📦 Installation & Usage
-Clone the repository: git clone https://github.com/yourusername/artic-candy-store-copy.git
+Clone the repository: git clone [https://github.com/yourusername/artic-candy-store-copy.git](https://github.com/BinaryBuffalo/CandystoreRIP.git)
 
 Navigate to the project directory: cd artic-candy-store-copy
 
